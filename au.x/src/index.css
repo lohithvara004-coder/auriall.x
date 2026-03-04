@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cyberpunk Theme Colors */
+    --background: 240 10% 3%;
+    --foreground: 200 100% 90%;
+
+    --card: 240 10% 5%;
+    --card-foreground: 200 100% 90%;
+
+    --popover: 240 10% 5%;
+    --popover-foreground: 200 100% 90%;
+
+    --primary: 200 100% 50%;
+    --primary-foreground: 240 10% 3%;
+
+    --secondary: 240 10% 8%;
+    --secondary-foreground: 200 100% 90%;
+
+    --muted: 240 10% 8%;
+    --muted-foreground: 200 50% 70%;
+
+    --accent: 320 100% 50%;
+    --accent-foreground: 240 10% 3%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 240 10% 3%;
+
+    --border: 240 20% 15%;
+    --input: 240 20% 15%;
+    --ring: 200 100% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 10% 5%;
+    --sidebar-foreground: 200 100% 90%;
+    --sidebar-primary: 200 100% 50%;
+    --sidebar-primary-foreground: 240 10% 3%;
+    --sidebar-accent: 240 10% 8%;
+    --sidebar-accent-foreground: 200 100% 90%;
+    --sidebar-border: 240 20% 15%;
+    --sidebar-ring: 200 100% 50%;
+
+    --financial-success: 142 76% 36%;
+    --financial-warning: 60 100% 50%;
+    --financial-danger: 0 84% 60%;
+    --financial-info: 200 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-montserrat;
+  }
+}
+
+@layer utilities {
+  .cyber-gradient {
+    background: linear-gradient(135deg, hsl(200 100% 50%) 0%, hsl(320 100% 50%) 50%, hsl(60 100% 50%) 100%);
+  }
+  
+  .cyber-card {
+    background: linear-gradient(135deg, 
+      hsla(240, 10%, 5%, 0.95) 0%, 
+      hsla(240, 20%, 8%, 0.95) 100%);
+    border: 1px solid hsl(200 100% 50% / 0.2);
+    box-shadow: 0 0 20px hsl(200 100% 50% / 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .cyber-input {
+    background: hsl(240 10% 8% / 0.8);
+    border: 1px solid hsl(200 100% 50% / 0.3);
+    color: hsl(200 100% 90%);
+  }
+  
+  .cyber-input:focus {
+    border-color: hsl(200 100% 50%);
+    box-shadow: 0 0 10px hsl(200 100% 50% / 0.3);
+  }
+  
+  .neon-glow {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+  
+  .cyber-button {
+    border: 1px solid currentColor;
+    box-shadow: 0 0 10px currentColor;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+  
+  .cyber-button:hover {
+    box-shadow: 0 0 20px currentColor, inset 0 0 20px currentColor;
+    transform: translateY(-2px);
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .floating-orb {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsl(200 100% 50% / 0.8), hsl(320 100% 50% / 0.4), transparent);
+    filter: blur(1px);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(120deg); }
+    66% { transform: translateY(10px) rotate(240deg); }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
